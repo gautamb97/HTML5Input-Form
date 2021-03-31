@@ -68,10 +68,19 @@
         const email = document.querySelector('#email');
         const emailError = document.querySelector('.email-error');
         email.addEventListener('input', function(){
-            let emailRegex = RegExp('^([a-z0-9\.-]{3,})@([a-z0-9]+).([a-z]{3})(.[a-z]{2})?$');
+            let emailRegex = RegExp('^([a-z0-9\.-]{3,})@([a-z0-9]+).([a-z]{2,})(.[a-z]{2})?$');
             if(emailRegex.test(email.value))
                 emailError.textContent = "";
             else emailError.textContent = "Email is incorrect";
+        });
+
+        const number = document.querySelector('#number');
+        const numberError = document.querySelector('.number-error');
+        number.addEventListener('input', function(){
+            let numberRegex = RegExp('^(91)?\s*[6-9][0-9]{9}$');
+            if(numberRegex.test(number.value))
+                numberError.textContent = "";
+            else numberError.textContent = "Number is incorrect";
         });
 
         const salary = document.querySelector('#salary');
