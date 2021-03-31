@@ -17,6 +17,7 @@
         <div>
             <label for="pwd">password input type: </label>
             <input type="password" id="pwd" name="pwd" required>
+            <error-output class="password-error" for="pwd"></error-output>
         </div>
         <div>
             <label for="email">email input type: </label>
@@ -81,6 +82,15 @@
             if(numberRegex.test(number.value))
                 numberError.textContent = "";
             else numberError.textContent = "Number is incorrect";
+        });
+
+        const password = document.querySelector('#pwd');
+        const passwordError = document.querySelector('.password-error');
+        password.addEventListener('input', function(){
+            let passwordRegex = RegExp('^[A-Za-z0-9]{8,}$');
+            if(passwordRegex.test(password.value))
+                passwordError.textContent = "";
+            else passwordError.textContent = "Password is incorrect it should conatin 8 chars";
         });
 
         const salary = document.querySelector('#salary');
